@@ -8,19 +8,20 @@
 class LinkedList {
 
     private:
-        Node* head;
-        Node* tail;
-        int worldSize;
-
-    public:
-
-// add default constructors/getter setters.
-
-// Add a push_back to allow up to add as many 
-// locations as we want when generating
-
-// We will be using the getters to find the info that needs
-// to be displayed to the player.
+    Node *head;
+    Node *tail;
+    int size;
+    void setSize(int size);
+public:
+    LinkedList();
+    LinkedList(GameData *gameData);
+    void setHead(Node *head);
+    Node* getHead() const;
+    void setTail(Node *tail);
+    Node *getTail() const;
+    void pushBack(GameData *gameData);
+    int Size() const;
+    void goNextLocation(Node *next);
 
 };
 

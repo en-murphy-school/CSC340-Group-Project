@@ -17,4 +17,7 @@ add_executable(CSC340_Group_Project
         Node.h
         Player.cpp
         Player.h
-        Location.h)
+        Location.h
+        Location.cpp
+        test.h
+        test.cpp)
