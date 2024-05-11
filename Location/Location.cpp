@@ -1,7 +1,7 @@
 #include "Location.h"
 
 Location::Location() {
-    (*this).name = "Defaul Name";
+    (*this).name = "Default Name";
     (*this).description = "Default Description";
 }
 

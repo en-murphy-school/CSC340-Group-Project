@@ -3,9 +3,9 @@
 
 #include <string>
 #include <vector>
-#include "Item.h"
-#include "Armor.h"
-#include "Weapon.h"
+#include "../items/Item.h"
+#include "../items/Armor.h"
+#include "../items/Weapon.h"
 class Location {
     private:
         string name;

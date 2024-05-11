@@ -9,34 +9,35 @@ using namespace std;
 Player::Player() {
     int money = 0;
     string name = "";
-    Items[]* itemList = nullptr;
-    Node* currentLocation = nullptr;
+    //Item*[] itemList = nullptr;
+    //Node* currentLocation = nullptr;
+}
+
+string Player::GetName() const {
+    return this->name;
 }
 
 Player::Player(int newMoney, string newName, Item[]* newItemList, Node* newCurrentLocation) {
     money = newMoney;
     name = newName;
-    itemList* = newItemList;
-    currentLocation = newCurrentLocation;
+    //itemList* = newItemList;
+    //currentLocation = newCurrentLocation;
 }
 
-string GetName() {
-    return name;
+
+void Player::SetName(string newName) {
+    this->name = newName;
 }
 
-void SetName(string newName) {
-    name = newName;
-}
-
-int GetMoney() {
+int Player::GetMoney() {
     return money;
 }
 
-void SetMoney(int newMoney) {
+void Player::SetMoney(int newMoney) {
     money = newMoney;
 }
-
-Item[] GetItemList() {
+/*
+Item[] Player::GetItemList() {
     return itemList;
 }
 
@@ -51,5 +52,5 @@ Node* GetCurrentLocation() {
 void SetCurrentLocation(Node* newCurrentLocation) {
     currentLocation = newCurrentLocation;
 }
-
+*/
 

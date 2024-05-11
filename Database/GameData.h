@@ -1,7 +1,7 @@
 
 #ifndef CSC340_GROUP_PROJECT_GAMEDATA_H
 #define CSC340_GROUP_PROJECT_GAMEDATA_H
-#include "Location.h"
+#include "../Location/Location.h"
 #include "Player.h"
 
 class GameData{
@@ -15,7 +15,6 @@ class GameData{
         Player* getPlayer() const;
         Location getLocation() const;
         GameData* movePlayerToNextLocation(GameData *gameData);
-
 };
 
 
