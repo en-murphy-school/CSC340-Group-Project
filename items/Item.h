@@ -1,19 +1,28 @@
 #ifndef ITEM_H
 #define ITEM_H
 
+#include<iostream>
+#include <string>
+using namespace std;
 
 class Item {
-private:
-   int attack;
-   int defense;
-   int magic;
-   int evasion;
+protected:
+   string name;
+   string description;
    int cost;
-
-
+   bool availability;
 public:
-   // Constructors and getters/setters
-
+   Item();
+   Item(const string& name, const string& description, const int& cost, const bool& availability);
+   string getItemName() const;
+   void setItemName(const string& name);
+   string getItemDescription() const;
+   void setItemDescription(const string& description);
+   int getItemCost() const;
+   void setItemCost(const int& cost);
+   bool checkAvailability() const;
+   void setAvailability(const bool& availability);
+   virtual void printItem() const = 0;
 };
 
 #endif
