@@ -1,20 +1,22 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 #include "Items/Item.h"
+#include "Location/Location.h"
 #include <string>
+#include <vector>
 
 
 class Player {
 private:
     int money;
     string name;
-    Item* itemList [100];
-    //Node* currentLocation;
+    vector<Item*> items;
+    Location currentLocation;
 
 public:
 // Constructors and getters/setters
     Player();
-    Player(int newMoney, std::string newName, Item[]* newItemList, Node* newCurrentLocation);
+    Player(int money, string name, vector<Item*> &items, Location currentLocation);
 
     string GetName() const;
     int GetMoney();

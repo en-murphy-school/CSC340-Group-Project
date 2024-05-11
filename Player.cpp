@@ -13,6 +13,13 @@ Player::Player() {
     //Node* currentLocation = nullptr;
 }
 
+Player::Player(int money, string name, vector<Item*> &items, Location currentLocation) {
+    this->money = money;
+    this->name = name;
+    this->items = items;
+    this->currentLocation = currentLocation;
+}
+
 string Player::GetName() const {
     return this->name;
 }
@@ -36,6 +43,8 @@ int Player::GetMoney() {
 void Player::SetMoney(int newMoney) {
     money = newMoney;
 }
+
+
 /*
 Item[] Player::GetItemList() {
     return itemList;
