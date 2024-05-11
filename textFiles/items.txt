@@ -1,0 +1,8 @@
+WEAPON SwordOfPower A-sword-which-crushes-all.-Massive-damage-with-a-little-magic-to-boot. 200 true 10 2
+WEAPON AxeOfDoom 15 5
+WEAPON Dagger 8 3
+WEAPON BowOfArrows 12 4
+ARMOR Shield 12 4
+ARMOR Helmet 8 6
+ARMOR Breastplate 16 10
+ARMOR Gauntlets 6 8
