@@ -12,11 +12,11 @@ Location::Location(const string& name, const string& description, vector<Item*>&
 }
 
 Location::Location(const string& name, const string& description, vector<Item*>& storeItems, 
-                    Item* hiddenItem) {
+                    vector<Item*> hiddenItems) {
     (*this).name = name;
     (*this).description = description;
     (*this).storeItems = storeItems;
-    (*this).hiddenItem = hiddenItem;
+    (*this).hiddenItems = hiddenItems;
 }
 
 string Location::getLocationName() const {
@@ -47,6 +47,16 @@ void Location::addStoreItem(Item* item) {
     (*this).storeItems.push_back(item);
 }
 
+void Location::removeStoreItem(Item* item) {
+    for (vector<Item*>::iterator it = storeItems.begin(); it!= storeItems.end(); it++) {
+        if ((*it)->getItemName() == item->getItemName()) {
+            delete *it;
+            storeItems.erase(it);
+            return;
+        }
+    }
+}
+
 bool Location::findItem(const string& itemName) const {
     for (vector<Item*>::const_iterator it = (*this).storeItems.begin(); it != (*this).storeItems.end(); it++) {
         if ((*it)->getItemName() == itemName) {
@@ -56,17 +66,36 @@ bool Location::findItem(const string& itemName) const {
     return false;
 }
 
-Item* Location::getHiddentItem() const {
-    return (*this).hiddenItem;
+vector<Item*> Location::getHiddentItem() const {
+    return (*this).hiddenItems;
 }
 
-void Location::setHiddenItem(Item* item) {
-    (*this).hiddenItem = item;
+void Location::addHiddenItems(Item* item) {
+    (*this).hiddenItems.push_back(item);
 }
+
+void Location::removeHiddenItem(Item* item) {
+    for (vector<Item*>::iterator it = hiddenItems.begin(); it!= hiddenItems.end(); it++) {
+        if ((*it)->getItemName() == item->getItemName()) {
+            delete *it;
+            hiddenItems.erase(it);
+            return;
+        }
+    }
+}
+
+
 
 void Location::printStoreItems() {
     for (int i = 0; i < storeItems.size(); i++) {
         storeItems.at(i)->printItem();
+        cout << endl;
+    }
+}
+
+void Location::printHiddenItems() {
+    for (int i = 0; i < hiddenItems.size(); i++) {
+        hiddenItems.at(i)->printItem();
         cout << endl;
     }
 }

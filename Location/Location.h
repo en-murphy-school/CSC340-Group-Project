@@ -11,21 +11,24 @@ class Location {
         string name;
         string description;
         vector<Item*> storeItems;
-        Item* hiddenItem;
+        vector<Item*> hiddenItems;
     public:
         Location();
         Location(const string& name, const string& description, vector<Item*>& storeItems);
-        Location(const string& name, const string& description, vector<Item*>& storeItems, Item* hiddenItem);
+        Location(const string& name, const string& description, vector<Item*>& storeItems, vector<Item*> hiddenItems);
         string getLocationName() const;
         void setLocationName(const string& name);
         string getLocationDescription() const;
         void setLocationDescription(const string& description);
         vector<Item*> getStoreItems() const;
         void addStoreItem(Item* item);
+        void removeStoreItem(Item* item);
         bool findItem(const string& itemName) const;
-        Item* getHiddentItem() const;
-        void setHiddenItem(Item* item);
+        vector<Item*> getHiddentItem() const;
+        void addHiddenItems(Item* item);
+        void removeHiddenItem(Item* item);
         void printStoreItems();
+        void printHiddenItems();
 };
 
 
