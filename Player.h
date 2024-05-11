@@ -1,32 +1,30 @@
 #ifndef PLAYER_H
 #define PLAYER_H
-#include "Items/Item.h"
-#include "Location/Location.h"
-#include <string>
-#include <vector>
 
+#include <vector>
+#include "items/Item.h"
+#include "items/Armor.h"
+#include "items/Weapon.h"
 
 class Player {
 private:
     int money;
     string name;
-    vector<Item*> items;
-    Location currentLocation;
+    vector<Item*> playerItems;
 
 public:
-// Constructors and getters/setters
     Player();
-    Player(int money, string name, vector<Item*> &items, Location currentLocation);
+    Player(const string& name, const int& money, vector<Item*>& playerItems);
+    string getPlayerName() const;
+    void setPlayerName(const string& name);
+    int getMoney() const;
+    void setMoney(const int& money);
+    vector<Item*> getPlayerItems() const;
+    void addPlayerItem(Item* item);
+    void removePlayerItem(Item* item);
+    bool findItem(const string& itemName) const;
+    void printPlayerItems();
 
-    string GetName() const;
-    int GetMoney();
-   // Item[] GetItemList();
-   // Node* GetCurrentLocation();
-
-    void SetName(string newName);
-    void SetMoney(int newMoney);
-    //void SetItemList(Item[]* newItemList);
-    //void SetCurrentLocation(Node* newCurrentLocation);
 };
 
 #endif

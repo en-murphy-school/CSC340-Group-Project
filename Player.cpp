@@ -1,56 +1,66 @@
 #include "Player.h"
-#include <string>
-#include <iostream>
-using namespace std;
-
-// Include constructors, getters/setters for Player.h
-// Use pointers for Items[]
 
 Player::Player() {
-    int money = 0;
-    string name = "";
-    //Item*[] itemList = nullptr;
-    //Node* currentLocation = nullptr;
+    this->money = 0;
+    this->name = "Default Name";
 }
 
-Player::Player(int money, string name, vector<Item*> &items, Location currentLocation) {
-    this->money = money;
+Player::Player(const string& name, const int& money, vector<Item*>& playerItems) {
     this->name = name;
-    this->items = items;
-    this->currentLocation = currentLocation;
+    this->money = money;
+    this->playerItems = playerItems;
 }
 
-string Player::GetName() const {
+string Player::getPlayerName() const {
     return this->name;
 }
-void Player::SetName(string newName) {
-    this->name = newName;
+
+void Player::setPlayerName(const string& name) {
+    this->name = name;
 }
 
-int Player::GetMoney() {
-    return money;
+int Player::getMoney() const {
+    return this->money;
 }
 
-void Player::SetMoney(int newMoney) {
-    money = newMoney;
+void Player::setMoney(const int& money) {
+    this->money = money;
 }
 
+vector<Item*> Player::getPlayerItems() const{
+    if (this->playerItems.size() == 0) {
+        cout << "There are no items in this store!" << endl;
+    }
 
-/*
-Item[] Player::GetItemList() {
-    return itemList;
+    return this->playerItems;
 }
 
-void SetItemList(Item[]* newItemList) {
-    itemList = newItemList;
+void Player::addPlayerItem(Item* item) {
+    this->playerItems.push_back(item);
 }
 
-Node* GetCurrentLocation() {
-    return currentLocation;
+void Player::removePlayerItem(Item* item){
+    for (vector<Item*>::iterator it = playerItems.begin(); it!= playerItems.end(); it++) {
+        if ((*it)->getItemName() == item->getItemName()) {
+            delete *it;
+            playerItems.erase(it);
+            return;
+        }
+    }
 }
 
-void SetCurrentLocation(Node* newCurrentLocation) {
-    currentLocation = newCurrentLocation;
+bool Player::findItem(const string& itemName) const {
+    for (vector<Item*>::const_iterator it = (*this).playerItems.begin(); it != (*this).playerItems.end(); it++) {
+        if ((*it)->getItemName() == itemName) {
+            return true;
+        }
+    }
+    return false;
 }
-*/
 
+void Player::printPlayerItems() {
+    for (int i = 0; i < playerItems.size(); i++) {
+        playerItems.at(i)->printItem();
+        cout << endl;
+    }
+}
